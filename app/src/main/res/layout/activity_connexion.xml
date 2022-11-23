@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityConnexion">
+
+    <TextView
+        android:id="@+id/tv_titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Se connecter"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/til_courriel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_courriel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Entrez votre courriel"
+        app:layout_constraintBottom_toTopOf="@+id/til_mdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titre">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_courriel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:maxLines="1" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_mdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Entrez votre mot de passe"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/btn_seconnecter"
+        app:layout_constraintTop_toBottomOf="@+id/til_courriel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_mdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_seconnecter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SE CONNECTER"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_mdp"
+        tools:layout_editor_absoluteX="109dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
