@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/vert"
     tools:context=".ActivityConnexion">
 
     <TextView
         android:id="@+id/tv_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Se connecter"
+        android:layout_marginTop="52dp"
+        android:text="Veuillez vous connecter"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/til_courriel"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/img_uberEatConnexion" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_courriel"
@@ -29,6 +32,7 @@
             android:id="@+id/tiet_courriel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="textEmailAddress"
             android:maxLines="1" />
 
@@ -48,6 +52,7 @@
             android:id="@+id/tiet_mdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="textPassword"
             android:maxLines="1" />
 
@@ -57,10 +62,24 @@
         android:id="@+id/btn_seconnecter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:backgroundTint="@color/black"
         android:text="SE CONNECTER"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_mdp"
-        tools:layout_editor_absoluteX="109dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_uberEatConnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoubereat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

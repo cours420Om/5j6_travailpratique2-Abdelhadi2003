@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/vert"
     tools:context=".ActivityGestionBd">
 
     <TextView
@@ -11,31 +12,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Vous etes bien connectés"
-        app:layout_constraintBottom_toTopOf="@+id/btn_modifierProfil"
+        android:text="Vous êtes bien connectés"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ajouterCommande"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_modifierProfil"
+        android:id="@+id/btn_gestionProfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="MODIFIER VOTRE PROFIL"
+        android:text="GÉRER VOTRE PROFIL"
         app:layout_constraintBottom_toTopOf="@+id/btn_deconnexion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_deconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="404dp"
         android:text="DECONNEXION"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_ajouterCommande"
+        android:layout_width="161dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="12dp"
+        android:text="Ajouter une commande"
+        app:layout_constraintBottom_toTopOf="@+id/btn_gestionProfil"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_afficherCommande"
+        android:layout_width="166dp"
+        android:layout_height="65dp"
+        android:text="Afficher ma commande"
+        app:layout_constraintBottom_toTopOf="@+id/btn_gestionProfil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toEndOf="@+id/btn_ajouterCommande"
+        app:layout_constraintTop_toBottomOf="@+id/tv_connecter"
+        app:layout_constraintVertical_bias="0.7" />
 </androidx.constraintlayout.widget.ConstraintLayout>

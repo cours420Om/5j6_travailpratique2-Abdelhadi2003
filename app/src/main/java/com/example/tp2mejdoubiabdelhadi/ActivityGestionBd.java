@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ActivityGestionBd extends AppCompatActivity {
 
-    Button btn_deconnexion, btn_modifierProfil;
+    Button btn_deconnexion, btn_gestionProfil, btn_ajouterCommande, btn_afficherCommande;
     FirebaseAuth bdAuth;
 
     @Override
@@ -20,7 +20,9 @@ public class ActivityGestionBd extends AppCompatActivity {
         setContentView(R.layout.activity_gestion_bd);
         bdAuth = FirebaseAuth.getInstance();
         btn_deconnexion = findViewById(R.id.btn_deconnexion);
-        btn_modifierProfil = findViewById(R.id.btn_modifierProfil);
+        btn_gestionProfil = findViewById(R.id.btn_gestionProfil);
+        btn_ajouterCommande = findViewById(R.id.btn_ajouterCommande);
+        btn_afficherCommande = findViewById(R.id.btn_afficherCommande);
         btn_deconnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,12 +33,27 @@ public class ActivityGestionBd extends AppCompatActivity {
             }
         });
 
-        btn_modifierProfil.setOnClickListener(new View.OnClickListener() {
+        btn_gestionProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intention = new Intent(ActivityGestionBd.this, ActivityGestionProfil.class);
                 startActivity(intention);
-                finish();
+            }
+        });
+
+        btn_ajouterCommande.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intention_ajouterCommande = new Intent(ActivityGestionBd.this, ActivityAjouterCommande.class);
+                startActivity(intention_ajouterCommande);
+            }
+        });
+
+        btn_afficherCommande.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intention = new Intent(ActivityGestionBd.this, ActivityGestionProfil.class);
+                startActivity(intention);
             }
         });
     }

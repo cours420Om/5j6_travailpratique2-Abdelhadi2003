@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/vert"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="S'inscrire"
+        android:layout_marginTop="44dp"
+        android:text="Veuillez créer un compte UberEats"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/til_courriel"
-        app:layout_constraintEnd_toEndOf="@+id/til_courriel"
-        app:layout_constraintStart_toStartOf="@+id/til_courriel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logoUbereats" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_courriel"
@@ -32,6 +33,7 @@
             android:id="@+id/tiet_courriel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="textEmailAddress"
             android:maxLines="1" />
 
@@ -53,6 +55,7 @@
             android:id="@+id/tiet_mdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="textPassword"
             android:maxLines="1" />
 
@@ -73,6 +76,7 @@
             android:id="@+id/tiet_confirmationMdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:inputType="textPassword"
             android:maxLines="1" />
 
@@ -82,20 +86,31 @@
         android:id="@+id/btn_inscription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/black"
         android:text="INSCRIPTION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/til_confirmationMdp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/til_confirmationMdp"
-        app:layout_constraintTop_toBottomOf="@+id/til_confirmationMdp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_connexion"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
         android:id="@+id/btn_connexion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="@color/black"
         android:text="SE CONNECTER"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_logoUbereats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_inscription" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoubereat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
