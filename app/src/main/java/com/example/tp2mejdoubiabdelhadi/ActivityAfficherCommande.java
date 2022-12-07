@@ -32,7 +32,7 @@ public class ActivityAfficherCommande extends AppCompatActivity {
     DatabaseReference reference;
     Button btn_supprimer;
     ActivityAfficherCommandeBinding binding;
-    String nomPlat, descriptionIngredient, boisson, sauce;
+    String nomPlat;
     FirebaseDatabase bd;
 
     @Override
@@ -46,36 +46,37 @@ public class ActivityAfficherCommande extends AppCompatActivity {
         listeCommande = new ArrayList<Commande>();
         initialisationListe();
 
+        lv_commande.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                lv_commande.setItemChecked(i,true);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         binding.btnSupprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                lv_commande.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        lv_commande.setSelector(android.R.color.holo_orange_light);
-                        //reference = FirebaseDatabase.getInstance().getReference("Commandes");
-                        bd = FirebaseDatabase.getInstance();
-                        reference = bd.getReference("Commandes");
+                nomPlat = lv_commande.getSelectedItem().toString();
+                bd = FirebaseDatabase.getInstance();
+                reference = bd.getReference("Commandes");
 
-                       //reference.child(usager).removeValue()
-                        reference.child(nomPlat).removeValue()
-                               .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                   @Override
-                                   public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()) {
-                                            Toast.makeText(ActivityAfficherCommande.this, "La commande a été supprimé", Toast.LENGTH_SHORT).show();
-                                        } else {
-                                            Toast.makeText(ActivityAfficherCommande.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
-                                        }
-                                   }
-                               });
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-
-                    }
-                });
+                //reference.child(usager).removeValue()
+                reference.child(nomPlat).removeValue()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()) {
+                                    Toast.makeText(ActivityAfficherCommande.this, "La commande a été supprimé", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(ActivityAfficherCommande.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
     }
