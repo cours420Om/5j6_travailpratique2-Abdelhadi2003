@@ -3,6 +3,7 @@ package com.example.tp2mejdoubiabdelhadi;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -49,6 +50,9 @@ public class ActivityAjouterCommande extends AppCompatActivity {
                                     binding.etBoisson.setText("");
                                     binding.etSauce.setText("");
                                     Toast.makeText(ActivityAjouterCommande.this, "Commande ajoutée", Toast.LENGTH_SHORT).show();
+                                    Intent intention = new Intent(ActivityAjouterCommande.this, ActivityGestionBd.class);
+                                    startActivity(intention);
+                                    finish();
                                 }
                             });
                 } else {

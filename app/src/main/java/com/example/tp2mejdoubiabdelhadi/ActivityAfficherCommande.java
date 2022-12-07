@@ -2,8 +2,10 @@ package com.example.tp2mejdoubiabdelhadi;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,14 +48,11 @@ public class ActivityAfficherCommande extends AppCompatActivity {
         listeCommande = new ArrayList<Commande>();
         initialisationListe();
 
-        lv_commande.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                lv_commande.setItemChecked(i,true);
-            }
+        lv_commande.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                nomPlat = lv_commande.getItemAtPosition(i).toString();
 
             }
         });
@@ -61,22 +60,37 @@ public class ActivityAfficherCommande extends AppCompatActivity {
         binding.btnSupprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nomPlat = lv_commande.getSelectedItem().toString();
-                bd = FirebaseDatabase.getInstance();
-                reference = bd.getReference("Commandes");
+                AlertDialog.Builder alerteDialogueBuilder = new AlertDialog.Builder(ActivityAfficherCommande.this);
+                alerteDialogueBuilder.setMessage("Êtes-vous sur de vouloir supprimer cette commande?");
 
-                //reference.child(usager).removeValue()
-                reference.child(nomPlat).removeValue()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()) {
-                                    Toast.makeText(ActivityAfficherCommande.this, "La commande a été supprimé", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(ActivityAfficherCommande.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                alerteDialogueBuilder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        bd = FirebaseDatabase.getInstance();
+                        reference = bd.getReference("Commandes");
+                        reference.child(nomPlat).removeValue()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(ActivityAfficherCommande.this, "La commande a été supprimé", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(ActivityAfficherCommande.this, "Erreur lors de la suppression", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                    }
+                });
+                alerteDialogueBuilder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                AlertDialog alertDialogue = alerteDialogueBuilder.create();
+                alertDialogue.show();
+
             }
         });
     }
