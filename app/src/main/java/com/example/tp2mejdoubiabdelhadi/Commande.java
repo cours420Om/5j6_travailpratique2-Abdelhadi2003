@@ -49,4 +49,9 @@ public class Commande {
     public void setPrix(String sauce) {
         this.sauce = sauce;
     }
+
+    @Override
+    public String toString() {
+        return nomPlat;
+    }
 }

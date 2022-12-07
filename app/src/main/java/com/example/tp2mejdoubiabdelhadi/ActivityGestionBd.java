@@ -52,7 +52,7 @@ public class ActivityGestionBd extends AppCompatActivity {
         btn_afficherCommande.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intention = new Intent(ActivityGestionBd.this, ActivityGestionProfil.class);
+                Intent intention = new Intent(ActivityGestionBd.this, ActivityAfficherCommande.class);
                 startActivity(intention);
             }
         });
